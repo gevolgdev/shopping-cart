@@ -26,7 +26,7 @@ const Products = () => {
               <div className='infos'>
                 <div className="details">
                   <span>{item.category}</span>
-                  <span>⭐{item.rating.rate}</span>
+                  <span>⭐ {item.rating.rate}</span>
                 </div>
                 <h2>{item.title}</h2>
                 <p>{item.description}</p>
