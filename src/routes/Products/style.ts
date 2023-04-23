@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const ProductsContainer = styled.section`
   width: 1128px;
   margin: 0 auto;
-  padding-top: 100px;
+  padding: 100px 0;
 
   .content {
     display: flex;
@@ -28,13 +28,13 @@ export const Product = styled.div`
   flex-direction: column;
   width: 350px;
   background: white;
-  padding: 15px;
+  padding: 25px;
   filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
 
   img {
     width: 100%;
     height: 250px;
-    object-fit: cover;
+    object-fit: contain;
     margin-bottom: 15px;
   }
   .infos {
