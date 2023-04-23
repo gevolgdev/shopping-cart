@@ -8,8 +8,8 @@ const Products = () => {
   const [listProducts, setListProducts] = useState<DataProps[]>([])
 
   useEffect(() => {
-    api.get('/products?limit=5')
-      .then((res) => setListProducts(res.data))
+    api.get('/products')
+      .then((res) => (setListProducts(res.data), console.table(res.data)))
       .catch((err) => console.log(err))
   }, [])
 
@@ -22,7 +22,19 @@ const Products = () => {
         <div className='grade'>
           {listProducts.map((item) => (
             <style.Product key={item.id}>
-              {item.title}
+              <img src={item.image}/>
+              <div className='infos'>
+                <div className="details">
+                  <span>{item.category}</span>
+                  <span>⭐{item.rating.rate}</span>
+                </div>
+                <h2>{item.title}</h2>
+                <p>{item.description}</p>
+                <p className='price'>
+                  R${item.price}
+                  <span>R$ {Math.ceil(item.price + 50)}</span>
+                </p>
+              </div>
             </style.Product>
           ))}
         </div>
