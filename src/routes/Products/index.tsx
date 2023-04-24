@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import api from '../../api'
 import * as style from './style';
 import { DataProps } from '../../types/types';
+import Header from '../../components/Header';
 
 const Products = () => {
 
@@ -9,15 +10,22 @@ const Products = () => {
 
   useEffect(() => {
     api.get('/products')
-      .then((res) => (setListProducts(res.data), console.table(res.data)))
+      .then((res) => setListProducts(res.data))
       .catch((err) => console.log(err))
   }, [])
+
+  const addProduct = (infos: DataProps): void => {
+    console.log(infos)
+  }
+
 
   return (
     <style.ProductsContainer>
 
       <div className='content'>
-        <style.Title>Products</style.Title>
+        <Header
+          title='Products'
+        />
 
         <div className='grade'>
           {listProducts.map((item) => (
@@ -35,6 +43,7 @@ const Products = () => {
                   <span>R$ {Math.ceil(item.price + 50)}</span>
                 </p>
               </div>
+              <style.Button onClick={() => addProduct(item)}>Adicionar ao carrinho</style.Button>
             </style.Product>
           ))}
         </div>
