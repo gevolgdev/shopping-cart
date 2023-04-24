@@ -28,6 +28,7 @@ const Products = () => {
       <div className='content'>
         <Header
           title='Products'
+          cart
         />
 
         <style.Categories>
