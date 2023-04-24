@@ -15,15 +15,33 @@ export const ProductsContainer = styled.section`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    /* justify-content: space-between; */
-    gap: 30px;
+    gap: 35px;
   }
 `
 
-export const Title = styled.h1`
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-`
+export const Categories = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  gap: 50px;
+  margin-bottom: 30px;
+
+  button {
+    width: 150px;
+    background: #C7C7C7;
+    color: #5e5e5e;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    &:hover {
+      background: #DDDDDD;
+    }
+  }
+`;
 
 export const Product = styled.div`
   display: flex;
