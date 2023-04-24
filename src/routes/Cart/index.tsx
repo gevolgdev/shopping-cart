@@ -1,8 +1,14 @@
-
+import { Header } from '../../components';
+import * as style from './style';
 
 const Cart = () => {
   return (
-    <div>Cart</div>
+    <style.CartContainer>
+      <Header
+        title='Your cart'
+        products
+      />
+    </style.CartContainer>
   )
 }
 
