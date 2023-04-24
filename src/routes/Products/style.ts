@@ -3,17 +3,19 @@ import styled from 'styled-components';
 export const ProductsContainer = styled.section`
   width: 1128px;
   margin: 0 auto;
-  padding: 100px 0;
+  padding-bottom: 100px;
 
   .content {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
   }
 
   .grade {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    /* justify-content: space-between; */
     gap: 30px;
   }
 `
@@ -69,4 +71,14 @@ export const Product = styled.div`
       }
     }
   }
+`
+
+export const Button = styled.button`
+  border: none;
+  outline: none;
+  background: #22c55e;
+  padding: 15px 0;
+  color: white;
+  margin-top: 20px;
+  cursor: pointer;
 `
