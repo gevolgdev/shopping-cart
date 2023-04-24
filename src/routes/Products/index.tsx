@@ -6,18 +6,21 @@ import Header from '../../components/Header';
 
 const Products = () => {
 
-  const [listProducts, setListProducts] = useState<DataProps[]>([])
+  const [products, setProducts] = useState<DataProps[]>([]);
+  const [filter, setFilter] = useState<string>('');
 
   useEffect(() => {
     api.get('/products')
-      .then((res) => setListProducts(res.data))
+      .then((res) => setProducts(res.data))
       .catch((err) => console.log(err))
-  }, [])
+  }, []);
 
   const addProduct = (infos: DataProps): void => {
-    console.log(infos)
-  }
+    console.log(infos);
+  };
 
+  const categoryProducts: DataProps[] = products.filter(list => list.category === filter);
+  const listProducts: DataProps[] = filter ? categoryProducts : products;
 
   return (
     <style.ProductsContainer>
@@ -26,6 +29,13 @@ const Products = () => {
         <Header
           title='Products'
         />
+
+        <style.Categories>
+          <button onClick={() => setFilter('')}>All products</button>
+          <button onClick={() => setFilter(`men's clothing`)}>Men's clothing</button>
+          <button onClick={() => setFilter('jewelery')}>Jewelery</button>
+          <button onClick={() => setFilter('electronics')}>Electronics</button>
+        </style.Categories>
 
         <div className='grade'>
           {listProducts.map((item) => (
@@ -43,7 +53,7 @@ const Products = () => {
                   <span>R$ {Math.ceil(item.price + 50)}</span>
                 </p>
               </div>
-              <style.Button onClick={() => addProduct(item)}>Adicionar ao carrinho</style.Button>
+              <style.Button onClick={() => addProduct(item)}>Add to cart</style.Button>
             </style.Product>
           ))}
         </div>
