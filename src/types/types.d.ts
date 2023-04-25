@@ -4,7 +4,7 @@ interface RatingProps {
 }
 
 export interface DataProps {
-  id: number;
+  id?: number;
   title: string;
   price: number;
   category: string;
