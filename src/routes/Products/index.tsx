@@ -3,6 +3,8 @@ import api from '../../api'
 import * as style from './style';
 import { DataProps } from '../../types/types';
 import Header from '../../components/Header';
+import Product from '../../components/Product';
+
 
 const Products = () => {
 
@@ -14,10 +16,6 @@ const Products = () => {
       .then((res) => setProducts(res.data))
       .catch((err) => console.log(err))
   }, []);
-
-  const addProduct = (infos: DataProps): void => {
-    console.log(infos);
-  };
 
   const categoryProducts: DataProps[] = products.filter(list => list.category === filter);
   const listProducts: DataProps[] = filter ? categoryProducts : products;
@@ -40,22 +38,15 @@ const Products = () => {
 
         <div className='grade'>
           {listProducts.map((item) => (
-            <style.Product key={item.id}>
-              <img src={item.image}/>
-              <div className='infos'>
-                <div className="details">
-                  <span>{item.category}</span>
-                  <span>⭐ {item.rating.rate}</span>
-                </div>
-                <h2>{item.title}</h2>
-                <p>{item.description}</p>
-                <p className='price'>
-                  R${item.price}
-                  <span>R$ {Math.ceil(item.price + 50)}</span>
-                </p>
-              </div>
-              <style.Button onClick={() => addProduct(item)}>Add to cart</style.Button>
-            </style.Product>
+            <Product
+              key={item.id}
+              title={item.title}
+              category={item.category}
+              rating={item.rating}
+              description={item.description}
+              image={item.image}
+              price={item.price}
+            />
           ))}
         </div>
       </div>
