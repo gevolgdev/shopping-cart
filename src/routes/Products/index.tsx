@@ -38,15 +38,7 @@ const Products = () => {
 
         <div className='grade'>
           {listProducts.map((item) => (
-            <Product
-              key={item.id}
-              title={item.title}
-              category={item.category}
-              rating={item.rating}
-              description={item.description}
-              image={item.image}
-              price={item.price}
-            />
+            <Product key={item.id} {...item}/>
           ))}
         </div>
       </div>
