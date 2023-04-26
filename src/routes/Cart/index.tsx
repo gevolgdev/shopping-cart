@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Header } from '../../components';
+import { Header, TotalPrice } from '../../components';
 import * as style from './style';
 import { DataProps } from '../../types/types';
 import { useSelector } from 'react-redux';
@@ -18,15 +18,14 @@ const Cart = () => {
 
   return (
     <style.CartContainer>
-      <Header title='Your cart' products />
+      <Header title='My cart' products />
 
       <div className='content'>
         {productsCart.map((item) => (
           <ProductCart key={item.id} {...item}/>
         ))}
       </div>
-      ________________________ <br/><br/>
-      <h1>R$ {totalCartPrice}</h1>
+      <TotalPrice priceCart={totalCartPrice}/>
     </style.CartContainer>
   )
 }

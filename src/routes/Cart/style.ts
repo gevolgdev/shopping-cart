@@ -7,7 +7,8 @@ export const CartContainer = styled.section`
 
   .content {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
   }
 `;
