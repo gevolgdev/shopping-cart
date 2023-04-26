@@ -3,6 +3,7 @@ import { ProductContainer, Button } from './style';
 import { useDispatch } from 'react-redux';
 import { addProductsCartReducer } from '../../redux/reducers/addProductReducer';
 import { DataProps } from '../../types/types';
+import { toast } from 'react-toastify';
 
 const Product: React.FC<DataProps> = (props) => {
 
@@ -11,6 +12,8 @@ const Product: React.FC<DataProps> = (props) => {
   const addProduct = (infos: DataProps): void => {
     dispatch(addProductsCartReducer(infos));
   };
+
+  const notify = () => toast('Added to cart!');
 
   return (
     <ProductContainer>
@@ -27,7 +30,7 @@ const Product: React.FC<DataProps> = (props) => {
           <span>R$ {Math.ceil(props.price + 50)}</span>
         </p>
       </div>
-      <Button onClick={() => addProduct(props)}>Add to cart</Button>
+      <Button onClick={() => (addProduct(props), notify())}>Add to cart</Button>
     </ProductContainer>
   )
 }
