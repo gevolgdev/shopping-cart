@@ -4,6 +4,8 @@ import * as style from './style';
 import { DataProps } from '../../types/types';
 import Header from '../../components/Header';
 import Product from '../../components/Product';
+import { ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 
 const Products = () => {
@@ -28,19 +30,20 @@ const Products = () => {
           title='Products'
           cart
         />
-
+        <ToastContainer/>
         <style.Categories>
           <button onClick={() => setFilter('')}>All products</button>
           <button onClick={() => setFilter(`men's clothing`)}>Men's clothing</button>
           <button onClick={() => setFilter('jewelery')}>Jewelery</button>
           <button onClick={() => setFilter('electronics')}>Electronics</button>
         </style.Categories>
-
+        
         <div className='grade'>
           {listProducts.map((item) => (
             <Product key={item.id} {...item}/>
           ))}
         </div>
+
       </div>
     </style.ProductsContainer>
   )
