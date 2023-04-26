@@ -16,14 +16,10 @@ const Cart = () => {
     totalCartPrice += prices[i];
   };
 
-  console.log(totalCartPrice);
-
   return (
     <style.CartContainer>
-      <Header
-        title='Your cart'
-        products
-      />
+      <Header title='Your cart' products />
+
       <div className='content'>
         {productsCart.map((item) => (
           <ProductCart key={item.id} {...item}/>
