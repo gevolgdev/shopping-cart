@@ -12,10 +12,11 @@ const ProductCart: React.FC<DataProps> = (props) => {
     <ProductCartContainer>
       <img src={props.image}/>
       <div className='infos'>
+        <span>{props.category}</span>
         <h1>{props.title}</h1>
         <div className='qtd'>
           <div className='amountInput'>
-            <button onClick={() => setAmount(prev => prev - 1)}>-</button>
+            <button disabled={amount <= 1 ? true : false} onClick={() => setAmount(prev => prev - 1)}>-</button>
             <span>{amount}</span>
             <button onClick={() => setAmount(prev => prev + 1)}>+</button>
           </div>

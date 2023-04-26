@@ -11,12 +11,18 @@ export const ProductCartContainer = styled.div`
   gap: 40px;
 
   img {
-    width: 150px;
+    width: 100px;
   }
   
   .infos {
     display: flex;
     flex-direction: column;
+
+    span {
+      font-size: .9rem;
+      color: #8e8e8e;
+      margin-bottom: 5px;
+    }
 
     h1 {
       font-size: 1.7rem;
@@ -43,6 +49,7 @@ export const ProductCartContainer = styled.div`
           border: none;
         }
         span {
+          color: #101010;
           margin: 0 5px;
         }
       }
