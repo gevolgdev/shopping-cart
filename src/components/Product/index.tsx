@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { addProductsCartReducer } from '../../redux/reducers/addProductReducer';
 import { DataProps } from '../../types/types';
 import { toast } from 'react-toastify';
+import {totalPriceCartReducer} from '../../redux/reducers/totalPriceCartReducer';
 
 const Product: React.FC<DataProps> = (props) => {
 
@@ -11,6 +12,7 @@ const Product: React.FC<DataProps> = (props) => {
 
   const addProduct = (infos: DataProps): void => {
     dispatch(addProductsCartReducer(infos));
+    dispatch(totalPriceCartReducer(infos.price));
   };
 
   const notify = () => toast('Added to cart!');
