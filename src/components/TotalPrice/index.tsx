@@ -11,7 +11,7 @@ const TotalPrice: React.FC<PriceProps> = (props) => {
     <TotalPriceContainer>
       <div className="content">
         <h1>Total:</h1>
-        <h1>R$ {props.priceCart}</h1>
+        <h1>R$ {props.priceCart.toFixed(2)}</h1>
       </div>
     </TotalPriceContainer>
   )
