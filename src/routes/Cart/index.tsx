@@ -9,7 +9,7 @@ import ProductCart from '../../components/ProductCart';
 const Cart = () => {
 
   const productsCart: DataProps[] = useSelector((state: RootState) => state.addProductCart.slice(1));
-  const prices: number[] = productsCart.map((item) => item.price);
+  const prices: number[] = useSelector((state: RootState) => state.totalPriceCart)
 
   let totalCartPrice: number = 0;
   for (let i = 0; i < prices.length; i++) {
