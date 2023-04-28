@@ -2,12 +2,15 @@
 
 Bem-vindos ao repo do meu novo projeto sobre "carrinho de compras".
 
+![Tela de Produtos](./public/screen_products.png)
+![Tela Carrinho de compras](./public/screen_cart.png)
+
 ## Resumo
 
-*Ideia:* Desenvolver todo o mecanismo de um carrinho de compras de um e-commerce.
-*Duração:* 3 dias.
-*Desafios:* Atualizar o valor do carrinho ao: Diminuir a quantidade de produtos, ao excluir e adicionar um produto.
-*Tecnologias:* React.js, Typescript e Redux.
+**Ideia:** Desenvolver todo o mecanismo de um carrinho de compras de um e-commerce.</br>
+**Duração:** 3 dias.</br>
+**Desafios:** Atualizar o valor do carrinho ao: Diminuir a quantidade de produtos, ao excluir e adicionar um produto.</br>
+**Tecnologias:** React.js, Typescript e Redux.
 
 ## Desenvolvimento
 
