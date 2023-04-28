@@ -9,12 +9,20 @@ import ProductCart from '../../components/ProductCart';
 const Cart = () => {
 
   const productsCart: DataProps[] = useSelector((state: RootState) => state.addProductCart.slice(1));
-  const prices: number[] = useSelector((state: RootState) => state.totalPriceCart)
+  const prices: number[] = useSelector((state: RootState) => state.prices);
+  const lessPrice: number[] = useSelector((state: RootState) => state.lessPriceCart);
 
-  let totalCartPrice: number = 0;
+  let totalPrice: number = 0;
   for (let i = 0; i < prices.length; i++) {
-    totalCartPrice += prices[i];
+    totalPrice += prices[i];
   };
+
+  let lessCartPrice: number = 0;
+  for (let i = 0; i < lessPrice.length; i++) {
+    lessCartPrice += lessPrice[i];
+  };
+
+  const totalCartPrice = totalPrice - lessCartPrice;
 
   return (
     <style.CartContainer>
