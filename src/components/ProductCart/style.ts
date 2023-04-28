@@ -52,6 +52,13 @@ export const ProductCartContainer = styled.div`
           color: #101010;
           margin: 0 5px;
         }
+        .trash {
+          background: transparent;
+          border: none;
+          font-size: 1rem;
+          color: #ef4444;
+          margin-right: 10px;
+        }
       }
     }
   }
