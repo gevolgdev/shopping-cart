@@ -3,9 +3,9 @@ import { TbTrashFilled } from 'react-icons/tb';
 import { DataProps } from '../../types/types';
 import { ProductCartContainer } from './style';
 import { useDispatch } from 'react-redux';
-import { Dispatch } from 'redux';
-import { totalPriceCartReducer } from '../../redux/reducers/totalPriceCartReducer';
-import { removeProductsCart } from '../../redux/reducers/addProductReducer';
+import { totalPriceCartReducer } from '../../redux/reducers/morePricesSlice';
+import { removeProductsCart } from '../../redux/reducers/productSlice';
+import { lessPriceCartReducer } from '../../redux/reducers/lessPriceSlice';
 
 interface Props {
   index: number;
@@ -19,9 +19,14 @@ const ProductCart: React.FC<Props> = ({product, index}) => {
 
   const dispatch = useDispatch();
 
-  const amountPrice = () => {
+  const amountMorePrice = () => {
     dispatch(totalPriceCartReducer(product.price));
     setAmount(prev => prev + 1);
+  };
+
+  const amountLessPrice = () => {
+    dispatch(lessPriceCartReducer(product.price));
+    setAmount(prev => prev - 1);
   };
 
   const removeProductCart = () => {
@@ -39,9 +44,9 @@ const ProductCart: React.FC<Props> = ({product, index}) => {
             <button className='trash' onClick={removeProductCart}>
               <TbTrashFilled/>
             </button>
-            <button disabled={amount <= 1 ? true : false} onClick={() => setAmount(prev => prev - 1)}>-</button>
+            <button disabled={amount <= 1 ? true : false} onClick={amountLessPrice}>-</button>
             <span>{amount}</span>
-            <button onClick={amountPrice}>+</button>
+            <button onClick={amountMorePrice}>+</button>
           </div>
           <p>R$ {priceProduct.toFixed(2)}</p>
         </div>

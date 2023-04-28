@@ -1,10 +1,10 @@
 import React from 'react'
 import { ProductContainer, Button } from './style';
 import { useDispatch } from 'react-redux';
-import { addProductsCartReducer } from '../../redux/reducers/addProductReducer';
+import { addProductsCartReducer } from '../../redux/reducers/productSlice';
 import { DataProps } from '../../types/types';
 import { toast } from 'react-toastify';
-import {totalPriceCartReducer} from '../../redux/reducers/totalPriceCartReducer';
+import {totalPriceCartReducer} from '../../redux/reducers/morePricesSlice';
 
 const Product: React.FC<DataProps> = (props) => {
 
