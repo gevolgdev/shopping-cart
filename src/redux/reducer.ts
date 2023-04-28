@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
-import addProductReducer from './reducers/addProductReducer';
-import totalPriceCartReducer from './reducers/totalPriceCartReducer';
+import addProductSlice from './reducers/productSlice';
+import morePricesSlice from './reducers/morePricesSlice';
+import lessPriceCartSlice from './reducers/lessPriceSlice';
 
 export const rootReducer = combineReducers({
-  addProductCart: addProductReducer,
-  totalPriceCart: totalPriceCartReducer,
+  addProductCart: addProductSlice,
+  prices: morePricesSlice,
+  lessPriceCart: lessPriceCartSlice,
 });
 
 export type RootState = ReturnType<typeof rootReducer>
