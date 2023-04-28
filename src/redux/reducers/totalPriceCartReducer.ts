@@ -6,7 +6,7 @@ const totalPriceCartSlice = createSlice({
   name: 'totalPrice',
   initialState,
   reducers: {
-    totalPriceCartReducer: (state, action: PayloadAction<number>) => [...state, action.payload]
+    totalPriceCartReducer: (state, action: PayloadAction<number>): number[] => [...state, action.payload]
   }
 })
 
