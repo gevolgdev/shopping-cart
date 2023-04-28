@@ -35,11 +35,14 @@ const productSlice = createSlice({
           }
         }
       ]
-    }
+    },
+    removeProductsCart: (state, action: PayloadAction<number>): DataProps[] => {
+      return state.filter((_, index) => index !== action.payload);
+    }       
   }
 });
 
 export default productSlice.reducer;
-export const { addProductsCartReducer } = productSlice.actions;
+export const { addProductsCartReducer, removeProductsCart } = productSlice.actions;
 
 export const SelectProductCart = (state: RootState) => state;
