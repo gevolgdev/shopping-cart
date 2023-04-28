@@ -30,6 +30,7 @@ const ProductCart: React.FC<Props> = ({product, index}) => {
   };
 
   const removeProductCart = () => {
+    dispatch(lessPriceCartReducer(priceProduct));
     dispatch(removeProductsCart(index + 1));
   }
 
@@ -37,7 +38,7 @@ const ProductCart: React.FC<Props> = ({product, index}) => {
     <ProductCartContainer>
       <img src={product.image}/>
       <div className='infos'>
-        <span>{index} - {product.category}</span>
+        <span>{product.category}</span>
         <h1>{product.title}</h1>
         <div className='qtd'>
           <div className='amountInput'>
