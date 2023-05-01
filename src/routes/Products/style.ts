@@ -5,6 +5,11 @@ export const ProductsContainer = styled.section`
   margin: 0 auto;
   padding-bottom: 100px;
 
+  @media (max-width: 600px) {
+    width: 100%;
+    padding: 0 16px 100px;
+  }
+
   .content {
     display: flex;
     flex-direction: column;
@@ -19,26 +24,19 @@ export const ProductsContainer = styled.section`
   }
 `
 
-export const Categories = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: center;
-  gap: 50px;
+export const Categories = styled.select`
+  width: 200px;
   margin-bottom: 30px;
+  font-size: .9rem;
+  padding: 5px;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  background: #f6fff8;
 
-  button {
-    width: 150px;
-    background: #C7C7C7;
-    color: #5e5e5e;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    outline: none;
-    font-family: 'Inter', sans-serif;
-    cursor: pointer;
-    &:hover {
-      background: #DDDDDD;
-    }
+
+  @media (max-width: 600px) {
+    gap: 10px;
+    flex-direction: column;
   }
 `;
