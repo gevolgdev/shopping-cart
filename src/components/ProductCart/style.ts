@@ -10,8 +10,16 @@ export const ProductCartContainer = styled.div`
   border-radius: 16px;
   gap: 40px;
 
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
+
   img {
     width: 100px;
+
+    @media (max-width: 600px) {
+      margin: 0 auto;
+    }
   }
   
   .infos {
