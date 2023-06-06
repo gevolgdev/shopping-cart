@@ -1,17 +1,15 @@
-import React from 'react'
+import totalPrice from '../../utils/totalPrice';
 import { TotalPriceContainer } from './style'
 
-interface PriceProps {
-  priceCart: number;
-}
+const TotalPrice = (): JSX.Element => {
 
-const TotalPrice: React.FC<PriceProps> = (props) => {
+  const { totalCartPrice } = totalPrice();
 
   return (
     <TotalPriceContainer>
       <div className="content">
         <h1>Total:</h1>
-        <h1>R$ {props.priceCart.toFixed(2)}</h1>
+        <h1>R$ {totalCartPrice.toFixed(2)}</h1>
       </div>
     </TotalPriceContainer>
   )

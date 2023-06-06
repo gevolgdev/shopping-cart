@@ -1,38 +1,11 @@
-import { useState } from 'react';
 import { TbTrashFilled } from 'react-icons/tb';
-import { DataProps } from '../../types/types';
+import { AmountProps } from '../../types/types';
 import { ProductCartContainer } from './style';
-import { useDispatch } from 'react-redux';
-import { totalPriceCartReducer } from '../../redux/reducers/morePricesSlice';
-import { removeProductsCart } from '../../redux/reducers/productSlice';
-import { lessPriceCartReducer } from '../../redux/reducers/lessPriceSlice';
+import productsAmount from '../../utils/productsAmount';
 
-interface Props {
-  index: number;
-  product: DataProps;
-}
+const ProductCart: React.FC<AmountProps> = ({product, index}) => {
 
-const ProductCart: React.FC<Props> = ({product, index}) => {
-
-  const [amount, setAmount] = useState<number>(1);
-  const priceProduct: number = product.price * amount;
-
-  const dispatch = useDispatch();
-
-  const amountMorePrice = () => {
-    dispatch(totalPriceCartReducer(product.price));
-    setAmount(prev => prev + 1);
-  };
-
-  const amountLessPrice = () => {
-    dispatch(lessPriceCartReducer(product.price));
-    setAmount(prev => prev - 1);
-  };
-
-  const removeProductCart = () => {
-    dispatch(lessPriceCartReducer(priceProduct));
-    dispatch(removeProductsCart(index + 1));
-  }
+  const { ...utils } = productsAmount({product, index});
 
   return (
     <ProductCartContainer>
@@ -42,14 +15,14 @@ const ProductCart: React.FC<Props> = ({product, index}) => {
         <h1>{product.title}</h1>
         <div className='qtd'>
           <div className='amountInput'>
-            <button className='trash' onClick={removeProductCart}>
+            <button className='trash' onClick={utils.removeProductCart}>
               <TbTrashFilled/>
             </button>
-            <button disabled={amount <= 1 ? true : false} onClick={amountLessPrice}>-</button>
-            <span>{amount}</span>
-            <button onClick={amountMorePrice}>+</button>
+            <button disabled={utils.amount <= 1 ? true : false} onClick={utils.amountLessPrice}>-</button>
+            <span>{utils.amount}</span>
+            <button onClick={utils.amountMorePrice}>+</button>
           </div>
-          <p>R$ {priceProduct.toFixed(2)}</p>
+          <p>R$ {utils.priceProduct.toFixed(2)}</p>
         </div>
       </div>
     </ProductCartContainer>

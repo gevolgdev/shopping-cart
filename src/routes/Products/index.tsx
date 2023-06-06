@@ -1,47 +1,14 @@
-import { useState, useEffect, ChangeEvent } from 'react';
-import api from '../../api'
 import * as style from './style';
 import { DataProps } from '../../types/types';
 import Header from '../../components/Header';
 import Product from '../../components/Product';
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+import filterCategoryProducts from '../../utils/filterCategoryProducts';
 
 const Products = () => {
 
-  const [products, setProducts] = useState<DataProps[]>([]);
-  const [filter, setFilter] = useState<string>('');
-
-  useEffect(() => {
-    api.get('/products')
-      .then((res) => setProducts(res.data))
-      .catch((err) => console.log(err))
-  }, []);
-
-  const handleFilterProducts = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const { value } = event.target;
-    let filter: string = '';
-
-    switch(value) {
-      case 'all':
-        filter = ''
-        break;
-      case 'mens':
-        filter = `men's clothing`;
-        break;
-      case 'jew':
-        filter = 'jewelery';
-        break;
-      case 'electro':
-        filter = 'electronics'
-        break;
-    }
-
-    setFilter(filter);
-  };
-
-  const categoryProducts: DataProps[] = products.filter(list => list.category === filter);
-  const listProducts: DataProps[] = filter ? categoryProducts : products;
+  const { handleFilterProducts, listProducts } = filterCategoryProducts();
 
   return (
     <style.ProductsContainer>

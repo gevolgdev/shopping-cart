@@ -1,7 +1,7 @@
 interface RatingProps {
   count: number;
   rate: number;
-}
+};
 
 export interface DataProps {
   id?: number;
@@ -11,4 +11,9 @@ export interface DataProps {
   description: string;
   image:string;
   rating: RatingProps;
-}
+};
+
+export interface AmountProps {
+  index: number;
+  product: DataProps;
+};

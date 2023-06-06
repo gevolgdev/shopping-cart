@@ -6,7 +6,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { Cart, Products } from './routes'
 // Redux
 import { Provider } from 'react-redux';
-import store from './redux/store';
+import store from './lib/redux/store';
 
 const route = createBrowserRouter([{
   path: '/',

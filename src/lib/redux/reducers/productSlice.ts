@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { DataProps } from '../../types/types';
+import { DataProps } from '../../../types/types';
 import { RootState } from "../reducer";
 
 const initialState: DataProps[]= [{

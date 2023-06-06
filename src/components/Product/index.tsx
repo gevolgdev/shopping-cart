@@ -1,21 +1,12 @@
 import React from 'react'
 import { ProductContainer, Button } from './style';
-import { useDispatch } from 'react-redux';
-import { addProductsCartReducer } from '../../redux/reducers/productSlice';
 import { DataProps } from '../../types/types';
-import { toast } from 'react-toastify';
-import {totalPriceCartReducer} from '../../redux/reducers/morePricesSlice';
+import addProducts from '../../utils/addProducts';
+
 
 const Product: React.FC<DataProps> = (props) => {
 
-  const dispatch = useDispatch();
-
-  const addProduct = (infos: DataProps): void => {
-    dispatch(addProductsCartReducer(infos));
-    dispatch(totalPriceCartReducer(infos.price));
-  };
-
-  const notify = () => toast('Added to cart!');
+  const { addProduct, notify } = addProducts();
 
   return (
     <ProductContainer>
